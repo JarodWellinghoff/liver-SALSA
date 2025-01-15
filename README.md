@@ -66,6 +66,8 @@ Please, see `license.txt`
 ## Citation
 The paper is currently under review, a preprint version of the article is available at http://dx.doi.org/10.2139/ssrn.4890104
 
+This code can be cited as [![DOI:10.5281/zenodo.14644657](http://img.shields.io/badge/DOI-10.5281/zenodo.14644657-0E7FC0.svg)](https://doi.org/10.5281/zenodo.14644657)
+
 
 If you have questions please contact Dr. Raquel Perez-Lopez (rperez@vhio.net), Maria Balaguer (mbalaguer@vhio.net) or Adrià Marcos (adriamarcos@vhio.net).
 
