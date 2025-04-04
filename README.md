@@ -64,7 +64,7 @@ Please, see `license.txt`
 
 
 ## Citation
-The paper is currently under review, a preprint version of the article is available at http://dx.doi.org/10.2139/ssrn.4890104
+The paper is out!! Read the full article at https://doi.org/10.1016/j.xcrm.2025.102032
 
 This code can be cited as [![DOI:10.5281/zenodo.14644657](http://img.shields.io/badge/DOI-10.5281/zenodo.14644657-0E7FC0.svg)](https://doi.org/10.5281/zenodo.14644657)
 
