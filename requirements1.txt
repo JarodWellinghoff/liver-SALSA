@@ -108,7 +108,7 @@ scikit-image==0.22.0
 scikit-learn==1.3.2
 scipy==1.11.3
 seaborn==0.13.0
-setuptools==68.0.0
+setuptools>=78.1.1
 SimpleITK==2.3.0
 six==1.16.0
 stack-data==0.6.2
