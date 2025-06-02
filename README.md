@@ -23,7 +23,7 @@ Download or clone this repository as follows, and navigate into the new folder /
 
 You may create a new Python environment, we will use anaconda/miniconda:
 
-`conda create --name SALSA_env1 python=3.8`
+`conda create --name SALSA_env1 python=3.10`
 
 `conda activate SALSA_env1`
 
