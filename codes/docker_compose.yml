@@ -1,0 +1,48 @@
+version: "3.8"
+
+services:
+  salsa:
+    build: .
+    image: salsa:latest
+    container_name: salsa_segmentation
+
+    # GPU support - works on Linux and Windows with proper setup
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+
+    volumes:
+      # Mount your data directory
+      - ./data:/app/data
+      # Mount your output directory
+      - ./output:/app/output
+      # Mount your models directory (download models first!)
+      - ./models:/app/models
+
+    working_dir: /app
+
+    # Resource limits (adjust based on your system)
+    mem_limit: 12g
+
+    # Example command - modify as needed
+    # command: ["/app/data/scan.nii.gz"]
+
+    # For interactive use, uncomment the following:
+    # stdin_open: true
+    # tty: true
+    # entrypoint: /bin/bash
+# Cross-platform usage with docker-compose:
+# 1. Place your NIfTI files in ./data/ (or data\ on Windows)
+# 2. Download models and place in ./models/ (or models\ on Windows)
+# 3. Run: docker-compose run --rm salsa /app/data/your_scan.nii.gz
+# 4. Results will be in ./output/ (or output\ on Windows)
+
+# Windows users: Also see docker-compose.windows.yml for Windows-optimized settings

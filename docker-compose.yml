@@ -1,0 +1,54 @@
+version: '3.8'
+
+# Windows-specific Docker Compose configuration
+# Use this instead of docker-compose.yml on Windows for better compatibility
+
+services:
+  salsa:
+    build: .
+    image: salsa:latest
+    container_name: salsa_segmentation
+    
+    # GPU support configuration for Windows
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+      
+    volumes:
+      # Windows-style volume mounts (Docker Desktop handles path conversion)
+      - type: bind
+        source: ./data
+        target: /app/data
+      - type: bind
+        source: ./output  
+        target: /app/output
+      - type: bind
+        source: ./models
+        target: /app/models
+        
+    working_dir: /app
+    
+    # Resource limits for Windows (adjust based on your system)
+    mem_limit: 12g
+    memswap_limit: 16g
+    
+    # Ensure container has access to all CPU cores
+    cpus: 0.0
+    
+    # Enable init process to handle signals properly
+    init: true
+    
+    # Windows-specific networking (usually not needed but can help)
+    network_mode: bridge
+
+# Example usage commands for Windows:
+# docker-compose -f docker-compose.windows.yml build
+# docker-compose -f docker-compose.windows.yml run --rm salsa /app/data/scan.nii.gz

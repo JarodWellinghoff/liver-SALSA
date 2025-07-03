@@ -13,3 +13,5 @@ python ./SALSA_stepONE.py $PATH_INPUT
 
 source activate .../envs/SALSA_env2
 python ./SALSA_stepTWO.py $PATH_INPUT
+
+read -p "Press any key to continue..."
